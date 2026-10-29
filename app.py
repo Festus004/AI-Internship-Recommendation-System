@@ -36,3 +36,15 @@ class InternshipRecommender:
         clean_q = self.preprocessor.clean_text(query)
         q_vec = self.vectorizer.transform([clean_q])
         return cosine_similarity(q_vec, self.feature_matrix).flatten()
+
+    def recommend(self, query, min_stipend=0, max_duration=12, location=None, top_n=20):
+        sim = self.calculate_similarity(query)
+        df = self.data.copy()
+        df['similarity_score'] = sim
+        if min_stipend > 0:
+            df = df[df['stipend_numeric'] >= min_stipend]
+        if max_duration < 12:
+            df = df[df['duration_numeric'] <= max_duration]
+        if location and location != 'Any Location':
+            df = df[df['location'].str.contains(location, case=False, na=False)]
+        return df.sort_values(by='similarity_score', ascending=False).head(top_n)
