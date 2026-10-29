@@ -71,3 +71,7 @@ DOMAIN_PRESETS = {
 
 if 'has_searched' not in st.session_state:
     st.session_state.has_searched = False
+
+def render_internship_card(row, idx):
+    score = int(round(row.get('similarity_score', 0) * 100))
+    st.markdown(f'### {row["internship_title"]} at {row["company_name"]} ({score}% Match)')
