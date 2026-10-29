@@ -54,3 +54,5 @@ def load_recommender():
     data_pkl = 'internship_recommender_data_20251025_072624.pkl'
     comp_pkl = 'internship_recommender_components_20251025_072624.pkl'
     return InternshipRecommender(data_pkl, comp_pkl)
+
+st.set_page_config(page_title='InternMatch AI | Intelligent Opportunity Platform', page_icon='🎓', layout='wide')
