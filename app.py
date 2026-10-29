@@ -48,3 +48,9 @@ class InternshipRecommender:
         if location and location != 'Any Location':
             df = df[df['location'].str.contains(location, case=False, na=False)]
         return df.sort_values(by='similarity_score', ascending=False).head(top_n)
+
+@st.cache_resource(show_spinner=False)
+def load_recommender():
+    data_pkl = 'internship_recommender_data_20251025_072624.pkl'
+    comp_pkl = 'internship_recommender_components_20251025_072624.pkl'
+    return InternshipRecommender(data_pkl, comp_pkl)
