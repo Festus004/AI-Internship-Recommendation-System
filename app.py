@@ -68,3 +68,6 @@ DOMAIN_PRESETS = {
     '📡 IoT & Embedded (CCE)': 'IoT, Embedded Systems, Arduino, Raspberry Pi, Communication',
     '🎨 UI/UX Design': 'UI/UX, Graphic Design, Figma, Adobe XD'
 }
+
+if 'has_searched' not in st.session_state:
+    st.session_state.has_searched = False
