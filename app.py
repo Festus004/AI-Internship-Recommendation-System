@@ -56,3 +56,15 @@ def load_recommender():
     return InternshipRecommender(data_pkl, comp_pkl)
 
 st.set_page_config(page_title='InternMatch AI | Intelligent Opportunity Platform', page_icon='🎓', layout='wide')
+
+# Domain Presets
+DOMAIN_PRESETS = {
+    'All Opportunities': '',
+    '🤖 AI & Machine Learning': 'Machine Learning, Deep Learning, Python, Data Science',
+    '🌐 Web Development': 'React, JavaScript, Node.js, Python, Full Stack',
+    '📊 Data Science': 'Data Science, Python, SQL, Statistics, Pandas',
+    '☁️ Cloud & DevOps': 'DevOps, Docker, Kubernetes, Cloud Computing, Linux, AWS',
+    '📱 Mobile Apps': 'Flutter, Android, React Native, Mobile Development',
+    '📡 IoT & Embedded (CCE)': 'IoT, Embedded Systems, Arduino, Raspberry Pi, Communication',
+    '🎨 UI/UX Design': 'UI/UX, Graphic Design, Figma, Adobe XD'
+}
